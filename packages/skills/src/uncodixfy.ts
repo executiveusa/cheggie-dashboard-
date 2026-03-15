@@ -99,7 +99,7 @@ export class UncodixfyEnforcer {
       }
     }
 
-    if (/console\.(log|debug|info)\s*\((?![^)]*`\[DEV\]`)/g.test(code)) {
+    if (/console\.(log|debug|info)\s*\((?![^)]*`\[DEV\]`)/.test(code)) {
       warnings.push('Remove console.log statements or gate them behind DEV flag');
     }
 

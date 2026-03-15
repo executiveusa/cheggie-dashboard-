@@ -8,7 +8,10 @@ export const YoutubeTranscriptAgentConfigSchema = z.object({
   auto_tag: z.boolean().default(true),
   generate_blog_post: z.boolean().default(false),
   publish_to_social: z.boolean().default(false),
-  cron_schedule: z.string().default('0 */6 * * *'),
+  cron_schedule: z.string().regex(
+    /^(\*|([0-5]?\d))(\/\d+)?(\s+(\*|([01]?\d|2[0-3]))(\/\d+)?){4}$/,
+    'Invalid cron expression'
+  ).default('0 */6 * * *'),
   max_videos_per_run: z.number().int().min(1).max(50).default(10),
 });
 
