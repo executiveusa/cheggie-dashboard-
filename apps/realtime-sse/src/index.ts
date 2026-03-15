@@ -97,7 +97,8 @@ app.post('/internal/emit', (req: Request, res: Response) => {
   }
 
   const eventId = uuidv4();
-  channelMap.broadcast(tenantId, eventId, event, { ...((data as Record<string, unknown>) ?? {}), timestamp: new Date().toISOString() });
+  const safeData = data && typeof data === "object" && !Array.isArray(data) ? data as Record<string, unknown> : { value: data };
+  channelMap.broadcast(tenantId, eventId, event, { ...safeData, timestamp: new Date().toISOString() });
 
   res.json({ broadcast: true, clients: channelMap.getTenantCount(tenantId), event_id: eventId });
 });

@@ -6,7 +6,7 @@ const ConfigSchema = z.object({
   SUPABASE_URL: z.string().url(),
   SUPABASE_ANON_KEY: z.string().min(1),
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
-  SECRETS_ENCRYPTION_KEY: z.string().length(64),
+  SECRETS_ENCRYPTION_KEY: z.string().length(64).regex(/^[a-f0-9]{64}$/i, 'Must be 64 hex characters'),
   REDIS_URL: z.string().default('redis://localhost:6379'),
   WEBHOOK_SECRET: z.string().min(1),
   LITELLM_BASE_URL: z.string().url().default('http://localhost:4000'),

@@ -5,9 +5,7 @@ const MUTATING_METHODS = ['POST', 'PUT', 'PATCH', 'DELETE'];
 
 export function auditLogMiddleware(req: Request, res: Response, next: NextFunction): void {
   if (!MUTATING_METHODS.includes(req.method)) return next();
-  const originalEnd = res.end.bind(res);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (res as any).end = function (chunk?: unknown, ...args: unknown[]) {
+  res.on('finish', () => {
     if (req.tenantId && req.userId && res.statusCode < 400) {
       const parts = req.path.split('/').filter(Boolean);
       const resourceType = parts[2] ?? parts[1] ?? 'unknown';
@@ -22,8 +20,6 @@ export function auditLogMiddleware(req: Request, res: Response, next: NextFuncti
         user_agent: req.headers['user-agent'],
       }).catch(() => undefined);
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return originalEnd(chunk, ...(args as any[]));
-  };
+  });
   next();
 }

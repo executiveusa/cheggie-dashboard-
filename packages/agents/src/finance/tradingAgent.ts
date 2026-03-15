@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { Agent, AgentRun } from '@cheggie/shared';
+import type { Agent } from '@cheggie/shared';
 
 export const TradingAgentConfigSchema = z.object({
   connector_id: z.string().uuid(),
