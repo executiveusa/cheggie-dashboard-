@@ -1,0 +1,138 @@
+version: '3.8'
+
+services:
+  control-api:
+    build:
+      context: ..
+      dockerfile: apps/control-api/Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      - SECRETS_ENCRYPTION_KEY=${SECRETS_ENCRYPTION_KEY}
+      - REDIS_URL=redis://redis:6379
+      - WEBHOOK_SECRET=${WEBHOOK_SECRET}
+      - LITELLM_BASE_URL=http://litellm:4000
+      - LITELLM_API_KEY=${LITELLM_API_KEY}
+      - POSTIZ_API_URL=http://postiz:3000
+      - POSTIZ_API_KEY=${POSTIZ_API_KEY}
+      - INTERNAL_SECRET=${INTERNAL_SECRET}
+      - SSE_SERVICE_URL=http://realtime-sse:3002
+      - RENDER_SERVICE_URL=http://render:3003
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - cheggie-net
+
+  realtime-sse:
+    build:
+      context: ..
+      dockerfile: apps/realtime-sse/Dockerfile
+    ports:
+      - "3002:3002"
+    environment:
+      - SSE_PORT=3002
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+      - INTERNAL_SECRET=${INTERNAL_SECRET}
+    restart: unless-stopped
+    networks:
+      - cheggie-net
+
+  jobs:
+    build:
+      context: ..
+      dockerfile: apps/jobs/Dockerfile
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      - REDIS_URL=redis://redis:6379
+      - SSE_SERVICE_URL=http://realtime-sse:3002
+      - INTERNAL_SECRET=${INTERNAL_SECRET}
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - cheggie-net
+
+  render:
+    build:
+      context: ..
+      dockerfile: apps/render/Dockerfile
+    ports:
+      - "3003:3003"
+    environment:
+      - RENDER_PORT=3003
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      - REDIS_URL=redis://redis:6379
+      - SSE_SERVICE_URL=http://realtime-sse:3002
+      - INTERNAL_SECRET=${INTERNAL_SECRET}
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - cheggie-net
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - cheggie-net
+
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    ports:
+      - "4000:4000"
+    environment:
+      - LITELLM_MASTER_KEY=${LITELLM_API_KEY}
+      - DATABASE_URL=${LITELLM_DATABASE_URL:?LITELLM_DATABASE_URL must be set}
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    networks:
+      - cheggie-net
+
+  postiz:
+    image: ghcr.io/gitroomhq/postiz-app:latest
+    ports:
+      - "5000:3000"
+    environment:
+      - DATABASE_URL=${POSTIZ_DATABASE_URL:?POSTIZ_DATABASE_URL must be set}
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=${POSTIZ_JWT_SECRET}
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+    networks:
+      - cheggie-net
+
+  postgres:
+    image: supabase/postgres:15.1.0.147
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - cheggie-net
+
+volumes:
+  redis-data:
+  postgres-data:
+
+networks:
+  cheggie-net:
+    driver: bridge
