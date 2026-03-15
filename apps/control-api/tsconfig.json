@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "declaration": false,
+    "declarationMap": false,
+    "paths": {
+      "@cheggie/shared": ["packages/shared/dist"],
+      "@cheggie/agents": ["packages/agents/dist"]
+    }
+  },
+  "include": ["src"]
+}
