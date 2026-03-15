@@ -61,7 +61,8 @@ async function executeRender(job: Job): Promise<void> {
     await new Promise((r) => setTimeout(r, 200));
   }
 
-  const outputUrl = `https://storage.example.com/renders/${tenant_id}/${job_id}.mp4`;
+  const storageBase = process.env['RENDER_OUTPUT_BASE_URL'] ?? 'https://storage.example.com';
+  const outputUrl = `${storageBase}/renders/${tenant_id}/${job_id}.mp4`;
   await supabaseAdmin
     .from('render_jobs')
     .update({ status: 'done', output_url: outputUrl, progress: 100, updated_at: new Date().toISOString() })

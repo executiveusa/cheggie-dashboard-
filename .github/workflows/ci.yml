@@ -49,7 +49,7 @@ jobs:
       SUPABASE_URL: https://test.supabase.co
       SUPABASE_ANON_KEY: test-anon-key
       SUPABASE_SERVICE_ROLE_KEY: test-service-role-key
-      SECRETS_ENCRYPTION_KEY: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      SECRETS_ENCRYPTION_KEY: 0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f20
       WEBHOOK_SECRET: test-webhook-secret
       REDIS_URL: redis://localhost:6379
       INTERNAL_SECRET: test-internal-secret
