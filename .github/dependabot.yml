@@ -1,0 +1,119 @@
+version: 2
+updates:
+  - package-ecosystem: "docker"
+    directory: "/apps/control-api"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "docker"
+    directory: "/apps/jobs"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "docker"
+    directory: "/apps/realtime-sse"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "docker"
+    directory: "/apps/render"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/apps/control-api"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/apps/jobs"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/apps/realtime-sse"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/apps/render"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/packages/agents"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/packages/shared"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/packages/skills"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
