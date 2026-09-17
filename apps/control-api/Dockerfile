@@ -1,4 +1,4 @@
-FROM node:20-alpine AS base
+FROM node:26-alpine AS base
 RUN npm install -g pnpm@8
 WORKDIR /app
 
@@ -22,7 +22,7 @@ RUN pnpm --filter @cheggie/skills build
 RUN pnpm --filter @cheggie/agents build
 RUN pnpm --filter @cheggie/control-api build
 
-FROM node:20-alpine AS runner
+FROM node:26-alpine AS runner
 WORKDIR /app
 RUN npm install -g pnpm@8
 COPY package.json pnpm-workspace.yaml ./
