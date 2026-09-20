@@ -12,11 +12,11 @@
   "dependencies": {
     "@cheggie/shared": "workspace:*",
     "@supabase/supabase-js": "^2.116.0",
-    "bullmq": "^6.3.4",
+    "bullmq": "^6.3.6",
     "ioredis": "^6.0.0"
   },
   "devDependencies": {
-    "@types/node": "^26.5.1",
+    "@types/node": "^26.6.1",
     "@types/jest": "^30.0.0",
     "jest": "^30.5.1",
     "ts-jest": "^29.4.12",
