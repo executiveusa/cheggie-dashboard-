@@ -36,7 +36,7 @@ importers:
         specifier: ^2.116.0
         version: 2.116.0
       bullmq:
-        specifier: ^6.3.4
+        specifier: ^6.3.6
         version: 6.3.6(ioredis@6.0.0(supports-color@8.1.1))
       cors:
         specifier: ^2.8.5
@@ -54,7 +54,7 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0(supports-color@8.1.1)
       morgan:
-        specifier: ^1.12.0
+        specifier: ^1.12.1
         version: 1.12.1(supports-color@8.1.1)
       swagger-jsdoc:
         specifier: ^6.3.0
@@ -66,7 +66,7 @@ importers:
         specifier: ^14.0.2
         version: 14.0.2
       zod:
-        specifier: ^4.6.1
+        specifier: ^4.6.5
         version: 4.6.5
     devDependencies:
       '@types/cors':
@@ -82,7 +82,7 @@ importers:
         specifier: ^1.9.9
         version: 1.9.10
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       '@types/supertest':
         specifier: ^7.2.1
@@ -121,7 +121,7 @@ importers:
         specifier: ^2.116.0
         version: 2.116.0
       bullmq:
-        specifier: ^6.3.4
+        specifier: ^6.3.6
         version: 6.3.6(ioredis@6.0.0(supports-color@8.1.1))
       ioredis:
         specifier: ^6.0.0
@@ -131,7 +131,7 @@ importers:
         specifier: ^30.0.0
         version: 30.0.0
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       jest:
         specifier: ^30.5.1
@@ -177,7 +177,7 @@ importers:
         specifier: ^30.0.0
         version: 30.0.0
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       '@types/uuid':
         specifier: ^9.0.8
@@ -204,7 +204,7 @@ importers:
         specifier: ^2.116.0
         version: 2.116.0
       bullmq:
-        specifier: ^6.3.4
+        specifier: ^6.3.6
         version: 6.3.6(ioredis@6.0.0(supports-color@8.1.1))
       cors:
         specifier: ^2.8.5
@@ -232,7 +232,7 @@ importers:
         specifier: ^30.0.0
         version: 30.0.0
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       '@types/uuid':
         specifier: ^9.0.8
@@ -256,11 +256,11 @@ importers:
         specifier: workspace:*
         version: link:../shared
       zod:
-        specifier: ^4.6.1
+        specifier: ^4.6.5
         version: 4.6.5
     devDependencies:
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       jest:
         specifier: ^30.5.1
@@ -275,11 +275,11 @@ importers:
   packages/shared:
     dependencies:
       zod:
-        specifier: ^4.6.1
+        specifier: ^4.6.5
         version: 4.6.5
     devDependencies:
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       jest:
         specifier: ^30.5.1
@@ -297,11 +297,11 @@ importers:
         specifier: workspace:*
         version: link:../shared
       zod:
-        specifier: ^4.6.1
+        specifier: ^4.6.5
         version: 4.6.5
     devDependencies:
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       jest:
         specifier: ^30.5.1
@@ -1392,8 +1392,8 @@ packages:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
 
-  body-parser@2.3.0:
-    resolution: {integrity: sha512-2cGmJupaNgg+QUwVLAucDuWuoMZ6EX9iHDRswZ5lsNYEmwPaRknMPCLZz07yTzVq/83p4o/wzbDZbBrTvGGTIw==}
+  body-parser@2.4.0:
+    resolution: {integrity: sha512-Ifk1KcLrxaGt1occQagQNFNNOqRt1LFuehEnHHzB8Z6cRgIxRU1TBaiIsUiCdA+gy5PL7Y1IX31DNKkRmxtXjQ==}
     engines: {node: '>=18'}
 
   brace-expansion@1.1.21:
@@ -2555,6 +2555,10 @@ packages:
 
   qs@6.16.0:
     resolution: {integrity: sha512-h6fhOIaRrID2CbEY2fqs+7t+UXZo+MLAnU5gRIq85uFtdiUPCdsApMlHhXogKVM4HM2DVbIjGNTTYH2OcmP1vA==}
+    engines: {node: '>=0.6'}
+
+  qs@6.17.1:
+    resolution: {integrity: sha512-jd3COkaKVgGUW+ZHyEHCG9bH7RoaaiWuMgzsIBjUMVjLAaWGWpoUAVwljVvBHxRu/2qEHnadLGZrkutYUBPQJA==}
     engines: {node: '>=0.6'}
 
   queue-microtask@1.2.3:
@@ -4133,7 +4137,7 @@ snapshots:
 
   binary-extensions@2.3.0: {}
 
-  body-parser@2.3.0(supports-color@8.1.1):
+  body-parser@2.4.0(supports-color@8.1.1):
     dependencies:
       bytes: 3.1.2
       content-type: 2.1.0
@@ -4141,7 +4145,7 @@ snapshots:
       http-errors: 2.0.1
       iconv-lite: 0.7.3
       on-finished: 2.4.1
-      qs: 6.16.0
+      qs: 6.17.1
       raw-body: 3.0.2
       type-is: 2.1.0
     transitivePeerDependencies:
@@ -4498,7 +4502,7 @@ snapshots:
   express@5.2.1(supports-color@8.1.1):
     dependencies:
       accepts: 2.0.0
-      body-parser: 2.3.0(supports-color@8.1.1)
+      body-parser: 2.4.0(supports-color@8.1.1)
       content-disposition: 1.1.0
       content-type: 1.0.5
       cookie: 0.7.2
@@ -5460,6 +5464,11 @@ snapshots:
   pure-rand@7.0.1: {}
 
   qs@6.16.0:
+    dependencies:
+      es-define-property: 1.0.1
+      side-channel: 1.1.1
+
+  qs@6.17.1:
     dependencies:
       es-define-property: 1.0.1
       side-channel: 1.1.1
