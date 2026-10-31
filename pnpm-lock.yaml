@@ -36,7 +36,7 @@ importers:
         specifier: ^2.116.0
         version: 2.116.0
       bullmq:
-        specifier: ^6.3.4
+        specifier: ^6.3.6
         version: 6.3.6(ioredis@6.0.0(supports-color@8.1.1))
       cors:
         specifier: ^2.8.5
@@ -54,7 +54,7 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0(supports-color@8.1.1)
       morgan:
-        specifier: ^1.12.0
+        specifier: ^1.12.1
         version: 1.12.1(supports-color@8.1.1)
       swagger-jsdoc:
         specifier: ^6.3.0
@@ -66,7 +66,7 @@ importers:
         specifier: ^14.0.2
         version: 14.0.2
       zod:
-        specifier: ^4.6.1
+        specifier: ^4.6.5
         version: 4.6.5
     devDependencies:
       '@types/cors':
@@ -82,7 +82,7 @@ importers:
         specifier: ^1.9.9
         version: 1.9.10
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       '@types/supertest':
         specifier: ^7.2.1
@@ -121,7 +121,7 @@ importers:
         specifier: ^2.116.0
         version: 2.116.0
       bullmq:
-        specifier: ^6.3.4
+        specifier: ^6.3.6
         version: 6.3.6(ioredis@6.0.0(supports-color@8.1.1))
       ioredis:
         specifier: ^6.0.0
@@ -131,7 +131,7 @@ importers:
         specifier: ^30.0.0
         version: 30.0.0
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       jest:
         specifier: ^30.5.1
@@ -177,7 +177,7 @@ importers:
         specifier: ^30.0.0
         version: 30.0.0
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       '@types/uuid':
         specifier: ^9.0.8
@@ -204,7 +204,7 @@ importers:
         specifier: ^2.116.0
         version: 2.116.0
       bullmq:
-        specifier: ^6.3.4
+        specifier: ^6.3.6
         version: 6.3.6(ioredis@6.0.0(supports-color@8.1.1))
       cors:
         specifier: ^2.8.5
@@ -232,7 +232,7 @@ importers:
         specifier: ^30.0.0
         version: 30.0.0
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       '@types/uuid':
         specifier: ^9.0.8
@@ -256,11 +256,11 @@ importers:
         specifier: workspace:*
         version: link:../shared
       zod:
-        specifier: ^4.6.1
+        specifier: ^4.6.5
         version: 4.6.5
     devDependencies:
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       jest:
         specifier: ^30.5.1
@@ -275,11 +275,11 @@ importers:
   packages/shared:
     dependencies:
       zod:
-        specifier: ^4.6.1
+        specifier: ^4.6.5
         version: 4.6.5
     devDependencies:
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       jest:
         specifier: ^30.5.1
@@ -297,11 +297,11 @@ importers:
         specifier: workspace:*
         version: link:../shared
       zod:
-        specifier: ^4.6.1
+        specifier: ^4.6.5
         version: 4.6.5
     devDependencies:
       '@types/node':
-        specifier: ^26.5.1
+        specifier: ^26.6.1
         version: 26.6.1
       jest:
         specifier: ^30.5.1
@@ -2001,8 +2001,8 @@ packages:
     resolution: {integrity: sha512-f+Dtubxfpf6KYFq7WVXJoOLn0bk4TJrMrN9SzeE+jrWrCWj7XX3fA6vkryafhADX+GMymRxgDJDOI33COkJc0w==}
     engines: {node: '>=20.0.0'}
 
-  ip-address@10.7.2:
-    resolution: {integrity: sha512-7H/2gFSIitxc0hG3nOI1glS8QLo/EHBFFLk8vEUjXY/xu0AdL8jZ9U1IzO2PUm0d2D/ofQcAifb0g6OBkt8U7w==}
+  ip-address@10.7.5:
+    resolution: {integrity: sha512-t2v0rkILYv9WXmSL7TpAaU3HXgaFYOPUcH3QHgwQ++gpJuH3bqyMy4Fvt/DJCTKwzH3Cf+bAp5W/mFL39KPLzA==}
     engines: {node: '>= 12'}
 
   ipaddr.js@1.9.1:
@@ -4491,7 +4491,7 @@ snapshots:
     dependencies:
       debug: 4.4.3(supports-color@8.1.1)
       express: 5.2.1(supports-color@8.1.1)
-      ip-address: 10.7.2
+      ip-address: 10.7.5
     transitivePeerDependencies:
       - supports-color
 
@@ -4784,7 +4784,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ip-address@10.7.2: {}
+  ip-address@10.7.5: {}
 
   ipaddr.js@1.9.1: {}
 
